@@ -1,9 +1,22 @@
-This is the new software package for the Bates College high altitude balloon club. It utilizes a variety of open-source packages such as Trackuino and IridiumSBD as well as many Adafruit packages for their hardware.
+This is the software repository for the Acadia High Altitude Balloon framework. It uses multiple microprocessors to carry out a variety of tasks during the flight of a high altitude balloon.
 
-Trackuino is intended for use by licensed radio amateurs.
+APRS is intended for use by licensed radio amateurs.
+
+
+
 
 Features
-========
+==========
 
- * More details to follow
- * This suite requires a variety of hardware and is intended to be used only with the specific architecture outlined by Project Acadia
+ * Tracking using APRS as well as a landing beacon using LTE
+ * Cutdown system to sever connection between parachute and balloon at a preset altitude
+ * Utilization of the HQ Raspberry Pi Camera for photographs from high altitude
+ * Direwolf libraries are used on the Pi to generate AFSK 1200 baud tones
+ * Communication between flight computers using Bluetooth Low Energy
+
+
+Roadmap
+=========
+
+ * Use LoRa 915 MHz radio for other telemetry relaying
+ * Add Iridium SBD tracking for further communication capability

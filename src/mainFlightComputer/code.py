@@ -1,4 +1,4 @@
-print("Welcome to the Acadia Launch Console v 0.1")
+print("Welcome to the Acadia Launch Console v 0.2")
 print("="*20)
 # import all libraries
 import time, array, math, board, neopixel, busio, digitalio, storage
@@ -67,6 +67,7 @@ spi = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
 cs = DIO(board.D10)
 sdcard = adafruit_sdcard.SDCard(spi, cs)
 vfs = storage.VfsFat(sdcard)
+storage.mount(vfs, "/sd")
 print("[OK] SD card connected")
 
 # switch neopixel to blue once all modules are initialized
@@ -84,30 +85,34 @@ print("Latitude: " + str(gps.latitude))
 print("Latitude: " + str(gps.longitude))
 print("Satellites: " + str(gps.satellites))
 print("GPS Altitude: " + str(gps.altitude_m))
-print("ENDING TEST SEQUENCE")
+print("ENDING GPS TEST SEQUENCE")
 
 #def cutDown(alt, cutdownAlt):
  #   cutdownInit.value = True
   #  while alt > cutdownAlt:
    #     time.sleep(1)
 
+BLE = False
+if BLE == True:        
+    while True:
+        ble.start_advertising(advertisement)
+        print("Waiting to connect")
+        while not ble.connected:
+            pass
+        print("Connected")
+        while ble.connected:
+            #s = uart.readline()
+            #if s:
+            #    print(s)
+            #xyz = str(gps.latitude) + ":" + str(gps.longitude) + ":" + str(gps.altitude_m)
+            xyz = str(gps.latitude)
+            uart.write(xyz.encode("utf-8"))
+            time.sleep(1)
 
-        
+# open file!
+
 while True:
-    ble.start_advertising(advertisement)
-    print("Waiting to connect")
-    while not ble.connected:
-        pass
-    print("Connected")
-    while ble.connected:
-        #s = uart.readline()
-        #if s:
-        #    print(s)
-        #xyz = str(gps.latitude) + ":" + str(gps.longitude) + ":" + str(gps.altitude_m)
-        xyz = str(gps.latitude)
-        uart.write(xyz.encode("utf-8"))
-        time.sleep(1)
-
-
-
-
+    with open("/sd/testdata.txt", "a") as fh:
+        fh.write(str(time.time()) + " \n")
+    print("file write successful!")
+    time.sleep(5)
