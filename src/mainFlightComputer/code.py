@@ -15,6 +15,14 @@ i2c = board.I2C()
 DIO = digitalio.DigitalInOut
 print("Initialized all libraries")
 
+# What mode are we running in?
+# 0 Flight (all systems online, all-up)
+# 1 GPS/Sensor data collection testing (no radios)
+# 2 BLE testing block (testing communications between pi/particle)
+
+MODE = 1
+
+
 # initialize neopixel as sensor to indicate startup status
 pixel = neopixel.NeoPixel(board.NEOPIXEL, 1)
 pixel[0] = (255, 0, 0)
@@ -92,8 +100,7 @@ print("ENDING GPS TEST SEQUENCE")
   #  while alt > cutdownAlt:
    #     time.sleep(1)
 
-BLE = False
-if BLE == True:        
+if MODE == 2:
     while True:
         ble.start_advertising(advertisement)
         print("Waiting to connect")
@@ -111,8 +118,58 @@ if BLE == True:
 
 # open file!
 
-while True:
+if MODE == 1:
+    key = ['BMP temperature',
+    'BMP pressure',
+    'BMP altitude',
+    'SHT relative_humidity',
+    
+
+
+    ]
     with open("/sd/testdata.txt", "a") as fh:
-        fh.write(str(time.time()) + " \n")
-    print("file write successful!")
-    time.sleep(5)
+        fh.write(str(key) + " \n")
+    while True:
+        data = [str(bmp280.temperature),
+        str(bmp280.pressure),
+        str(bmp280.altitude),
+        str(sht31d.relative_humidity),
+        str(lis3mdl.magnetic),
+        str(lsm6ds33.acceleration),
+        str(lsm6ds33.gyro),
+        str(gps.latitude),
+        str(gps.longitude),
+        str(gps.altitude_m)
+        ]
+        with open("/sd/testdata.txt", "a") as fh:
+            fh.write(str(data) + " \n")
+        print("file write successful!")
+        gps.update()
+        time.sleep(5)
+
+
+if MODE ==0:
+    while True:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
