@@ -119,16 +119,8 @@ if MODE == 2:
 # open file!
 
 if MODE == 1:
-    key = ['BMP temperature',
-    'BMP pressure',
-    'BMP altitude',
-    'SHT relative_humidity',
-    
-
-
-    ]
     with open("/sd/testdata.txt", "a") as fh:
-        fh.write(str(key) + " \n")
+        fh.write(str("restarted at" + str(time.time())) + " \n")
     while True:
         data = [str(bmp280.temperature),
         str(bmp280.pressure),
@@ -146,10 +138,12 @@ if MODE == 1:
         print("file write successful!")
         gps.update()
         time.sleep(5)
+        pixel[0] = (0, 255, 0)
 
 
 if MODE ==0:
     while True:
+        pass
 
 
 

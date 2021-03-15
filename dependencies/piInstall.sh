@@ -20,6 +20,7 @@ make install-conf
 curl -sS https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/i2samp.sh | bash
 
 
-# Install the CircuitPython libraries to run Bluetooth Low Energy and communicate with the other flight computers
-sudo pip3 install adafruit-circuitpython-ble
-
+# Install the Adafruit Libraries to interface with the I2C sensors
+sudo pip3 install adafruit-circuitpython-bmp3xx
+sudo pip3 install adafruit-circuitpython-lc709203f
+sudo pip3 install adafruit-circuitpython-lsm6ds
