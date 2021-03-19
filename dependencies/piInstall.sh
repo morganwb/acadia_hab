@@ -1,6 +1,6 @@
 #!/bin/bash
 # piInstall.sh
-# Install all dependencies to use the Raspberry Pi Zero as an APRS coprocessor
+# Install all dependencies to use the Raspberry Pi Zero as an APRS beacon
 sudo apt-get update -y && sudo apt-get upgrade -y
 
 
@@ -21,6 +21,5 @@ curl -sS https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scrip
 
 
 # Install the Adafruit Libraries to interface with the I2C sensors
-sudo pip3 install adafruit-circuitpython-bmp3xx
-sudo pip3 install adafruit-circuitpython-lc709203f
-sudo pip3 install adafruit-circuitpython-lsm6ds
+sudo pip3 install adafruit-circuitpython-bmp3xx adafruit-circuitpython-lc709203f adafruit-circuitpython-lsm6ds adafruit-circuitpython-lsm6ds adafruit-circuitpython-lis3mdl adafruit-circuitpython-gps
+
