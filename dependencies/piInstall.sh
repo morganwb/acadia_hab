@@ -1,7 +1,7 @@
 #!/bin/bash
 # piInstall.sh
 # Install all dependencies to use the Raspberry Pi Zero as an APRS coprocessor
-sudo apt-get update -y && sudo apt-get upgrade -y
+#sudo apt-get update -y && sudo apt-get upgrade -y
 
 
 # Install DireWolf and dependencies
