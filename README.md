@@ -12,7 +12,6 @@ Features
  * Cutdown system to sever connection between parachute and balloon at a preset altitude
  * Utilization of the HQ Raspberry Pi Camera for photographs from high altitude
  * Direwolf libraries are used on the Pi to generate AFSK 1200 baud tones
- * Communication between flight computers using Bluetooth Low Energy
 
 
 Roadmap
@@ -20,3 +19,4 @@ Roadmap
 
  * Use LoRa 915 MHz radio for other telemetry relaying
  * Add Iridium SBD tracking for further communication capability
+ * Addition of further sensors, for UV, radiation, etc
