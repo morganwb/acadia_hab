@@ -1,8 +1,8 @@
 #!/bin/bash
 # piInstall.sh
+
 # Install all dependencies to use the Raspberry Pi Zero as an APRS beacon
 sudo apt-get update -y && sudo apt-get upgrade -y
-
 
 # Install DireWolf and dependencies
 sudo apt-get install cmake libasound2-dev libudev-dev -y
