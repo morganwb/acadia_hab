@@ -1,3 +1,9 @@
+/******************************************************/
+//       THIS IS A GENERATED FILE - DO NOT EDIT       //
+/******************************************************/
+
+#include "Particle.h"
+#line 1 "/home/morgan/Documents/balloon_code/acadia_hab/src/acadiaParticle.ino"
 // Import libraries
 
 #include <Adafruit_GPS.h>
@@ -8,6 +14,9 @@
 // 1 will Particle.publish AND Serial.print, 0 will just Serial.print
 // Extremely useful for saving data while developing close enough to have a cable plugged in.
 // You can also change this remotely using the Particle.function "tmode" defined in setup()
+void setup();
+void loop();
+#line 11 "/home/morgan/Documents/balloon_code/acadia_hab/src/acadiaParticle.ino"
 int transmittingData = 1;
 
 // Used to keep track of the last time we published data
